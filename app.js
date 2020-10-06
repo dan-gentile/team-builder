@@ -12,7 +12,7 @@ const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
 
 
-const employees = [];
+const team = [];
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -60,7 +60,7 @@ function addEmployee() {
                                 type: "list"
                             }).then(function(answer) {
                                 if (answer.question === "no") {
-                                    console.log(team)
+                                    render(team);
                                 } else {
                                     addEmployee();
                                 };
@@ -85,7 +85,7 @@ function addEmployee() {
                                 type: "list"
                             }).then(function(answer) {
                                 if (answer.question === "no") {
-                                    console.log(team)
+                                    render(team);
                                 } else {
                                     addEmployee();
                                 };
@@ -97,7 +97,7 @@ function addEmployee() {
                 inquirer
                     .prompt({
                         name: "school",
-                        message: "What school do the intern attend?",
+                        message: "What school does the intern attend?",
                         type: "input"
                     }).then(function(answer) {
                         const intern = new Intern(newEmployee.name, newEmployee.id, newEmployee.email, answer.school);
@@ -110,8 +110,7 @@ function addEmployee() {
                                 type: "list"
                             }).then(function(answer) {
                                 if (answer.question === "no") {
-                                    render(employees)
-                                    console.log(employees)
+                                    render(team);
                                 } else {
                                     addEmployee();
                                 };
