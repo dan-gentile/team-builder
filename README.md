@@ -6,7 +6,7 @@
 
 ## Description 
 
-![readme-gen]()
+![team-builder]()
 
 
 This application is designed to generate a html webpage for your team based on user inputs. This allows managers to quickly generate a webpage with all of their teams basic info. You will be lead through a series of prompts to populate the page and then a file with all of your data will be created. 
@@ -64,9 +64,27 @@ Follow prompts to generate your form.
 
 ## Code Snippets
 
-Function running the whole app
+Function asking to add more employees or render the page
 ~~~
-
+function addMoreEmployees() {
+    inquirer
+        .prompt({
+            name: "question",
+            message: "Do you want to add more employees?",
+            choices: ["Yes", "No"],
+            type: "list"
+        }).then(function(answer) {
+            if (answer.question === "no") {
+                // if no more employees need to be entered render the results
+                const output = render(team);
+                // call the function to write the page using the data created above
+                writeHTML(output);
+            } else {
+                // add more employees
+                addEmployee();
+            };
+        });
+};
 ~~~
 
 
@@ -93,6 +111,10 @@ $ git commit -m "made changes"
 $ git push
 ~~~
 4. Submit Pull Request with comprehensive description of changes
+
+## Test
+
+In the test folder run `npm test`
 
 ## Questions 
 
