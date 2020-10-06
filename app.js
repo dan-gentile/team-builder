@@ -9,9 +9,75 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const Employee = require("./lib/Employee");
 
+const team = [];
 
 // Write code to use inquirer to gather information about the development team members,
+inquirer
+    .prompt([{
+            name: "name",
+            message: "What is your name?",
+            type: "input"
+        },
+        {
+            name: "id",
+            message: "What is your ID?",
+            type: "input"
+        },
+        {
+            name: "email",
+            message: "What is your Email",
+            type: "input"
+        },
+        {
+            name: "role",
+            message: "What is your job title?",
+            choices: ["Manager", "Engineer", "Intern"],
+            type: "list"
+        }
+
+    ]).then(function(res) {
+        const newEmployee = new Employee(res.name, res.id, res.email);
+        if (res.role === "Manager") {
+            inquirer
+                .prompt({
+                    name: "officeNumber",
+                    message: "What is your Office Number?",
+                    type: "input"
+                }).then(function(answer) {
+                    const manager = new Manager(newEmployee.name, newEmployee.id, newEmployee.email, answer.officeNumber);
+                    team.push(manager)
+                });
+
+        };
+        if (res.role === "Engineer") {
+            inquirer
+                .prompt({
+                    name: "gitHubUserName",
+                    message: "What is your GitHub username?",
+                    type: "input"
+                }).then(function(answer) {
+                    const engineer = new Engineer(newEmployee.name, newEmployee.id, newEmployee.email, answer.gitHubUserName);
+                    team.push(engineer);
+                });
+
+        };
+        if (res.role === "Intern") {
+            inquirer
+                .prompt({
+                    name: "school",
+                    message: "What school do you attend?",
+                    type: "input"
+                }).then(function(answer) {
+                    const intern = new Engineer(newEmployee.name, newEmployee.id, newEmployee.email, answer.school);
+                    team.push(intern);
+                });
+
+        };
+
+    });
+
 
 // and to create objects for each team member (using the correct classes as blueprints!)
 
