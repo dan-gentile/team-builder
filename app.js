@@ -107,7 +107,7 @@ function addMoreEmployees() {
             choices: ["Yes", "No"],
             type: "list"
         }).then(function(answer) {
-            if (answer.question === "no") {
+            if (answer.question === "No") {
                 // if no more employees need to be entered render the results
                 const output = render(team);
                 // call the function to write the page using the data created above
