@@ -11,6 +11,15 @@
 
 This application is designed to generate a html webpage for your team based on user inputs. This allows managers to quickly generate a webpage with all of their teams basic info. You will be lead through a series of prompts to populate the page and then a file with all of your data will be created. 
 
+Things that will be generated: 
+- Name
+- Employee ID #
+- Email 
+- Job Role (Manager, Engineer, or Intern)
+- Phone Number (for Manager)
+- GitHub Username (for Engineer)
+- School (for Intern)
+
 ## Table of Contents
 
 - [Title](#title)
