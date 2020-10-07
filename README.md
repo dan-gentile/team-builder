@@ -6,7 +6,7 @@
 
 ## Description 
 
-![team-builder]()
+![team-builder](https://user-images.githubusercontent.com/68626350/95276503-3492f300-0800-11eb-9da5-1ebc2d2b2aa2.gif))
 
 
 This application is designed to generate a html webpage for your team based on user inputs. This allows managers to quickly generate a webpage with all of their teams basic info. You will be lead through a series of prompts to populate the page and then a file with all of your data will be created. 
